@@ -1,4 +1,4 @@
-export const notes = [
+const notes = [
   {
     id: 1,
     title: "Go to market",
