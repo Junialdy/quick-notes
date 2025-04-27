@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+
 "use client";
 
 type Note = {
@@ -73,7 +73,7 @@ export default function CardNotes({ initialNotes }: { initialNotes: Note[] }) {
       <Form
         action={handleAddNote}
         className="w-full max-w-sm flex flex-col gap-4"
-        onReset={() => {}}
+        onReset={() => { }}
       >
         <Input
           isRequired

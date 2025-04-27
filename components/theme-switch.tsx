@@ -22,6 +22,7 @@ export const ThemeSwitch: FC<ThemeSwitchProps> = ({
   const isSSR = useIsSSR();
 
   const onChange = () => {
+    // eslint-disable-next-line @typescript-eslint/no-unused-expressions
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 

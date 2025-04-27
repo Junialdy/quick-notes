@@ -29,7 +29,6 @@ export async function deleteNote(noteId: number) {
 
 export async function updateNote(
   id: number,
-  // eslint-disable-next-line prettier/prettier
   updatedNote: { title: string; desc: string }
 ) {
   const res = await fetch(`http://localhost:3000/notes`, {
