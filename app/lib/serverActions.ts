@@ -1,0 +1,45 @@
+"use server";
+
+export async function addNote(formData: FormData) {
+  const title = formData.get("title")?.toString().trim();
+  const desc = formData.get("desc")?.toString().trim();
+
+  if (!title || !desc) return;
+
+  const res = await fetch("http://localhost:3000/notes", {
+    method: "POST",
+    body: JSON.stringify({ title, desc }),
+  });
+
+  if (!res.ok) throw new Error("Gagal menambahkan catatan");
+
+  return await res.json();
+}
+
+export async function deleteNote(noteId: number) {
+  const res = await fetch("http://localhost:3000/notes", {
+    method: "DELETE",
+    body: JSON.stringify({ id: noteId }),
+  });
+
+  if (!res.ok) throw new Error("Gagal menghapus catatan");
+
+  return await res.json();
+}
+
+export async function updateNote(
+  id: number,
+  // eslint-disable-next-line prettier/prettier
+  updatedNote: { title: string; desc: string }
+) {
+  const res = await fetch(`http://localhost:3000/notes`, {
+    method: "PUT",
+    body: JSON.stringify({ id, ...updatedNote }),
+  });
+
+  if (!res.ok) {
+    throw new Error("Failed to update note");
+  }
+
+  return res.json();
+}
