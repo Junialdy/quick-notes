@@ -1,8 +1,8 @@
 import CardNotes from "@/components/card-notes";
 import { title, subtitle } from "@/components/primitives";
 
-export default async function Home() {
-  const response = await fetch("http://localhost:3000/notes");
+export default async function Page() {
+  const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/notes`);
   const notes = await response.json();
 
   return (
